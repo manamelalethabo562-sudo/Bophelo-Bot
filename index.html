@@ -102,6 +102,293 @@
             transition: width 0.3s ease;
         }
         .nav-link:hover::after { width: 100%; }
+
+        /* HERO SECTION ANIMATED BACKGROUND */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0) 70%);
+            animation: float-up 20s infinite linear;
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 10%;
+            bottom: -100px;
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            left: 30%;
+            bottom: -150px;
+            animation-duration: 30s;
+            animation-delay: 2s;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0) 70%);
+        }
+
+        .particle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            left: 50%;
+            bottom: -80px;
+            animation-duration: 22s;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            left: 70%;
+            bottom: -120px;
+            animation-duration: 28s;
+            animation-delay: 1s;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0) 70%);
+        }
+
+        .particle:nth-child(5) {
+            width: 140px;
+            height: 140px;
+            left: 85%;
+            bottom: -180px;
+            animation-duration: 35s;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(6) {
+            width: 50px;
+            height: 50px;
+            left: 20%;
+            bottom: -60px;
+            animation-duration: 18s;
+            animation-delay: 5s;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-120vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* DNA Helix Animation */
+        .dna-container {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 400px;
+            opacity: 0.15;
+        }
+
+        .dna-strand {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .dna-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: dna-wave 3s ease-in-out infinite;
+        }
+
+        .dna-dot:nth-child(odd) {
+            left: 0;
+        }
+
+        .dna-dot:nth-child(even) {
+            right: 0;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes dna-wave {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Neural Network Lines */
+        .neural-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .neural-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), transparent);
+            animation: pulse-line 4s ease-in-out infinite;
+        }
+
+        .neural-line:nth-child(1) {
+            width: 300px;
+            top: 20%;
+            left: -300px;
+            animation-delay: 0s;
+        }
+
+        .neural-line:nth-child(2) {
+            width: 400px;
+            top: 40%;
+            right: -400px;
+            animation-delay: 1s;
+        }
+
+        .neural-line:nth-child(3) {
+            width: 250px;
+            top: 60%;
+            left: -250px;
+            animation-delay: 2s;
+        }
+
+        .neural-line:nth-child(4) {
+            width: 350px;
+            top: 80%;
+            right: -350px;
+            animation-delay: 3s;
+        }
+
+        @keyframes pulse-line {
+            0%, 100% {
+                transform: translateX(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(100vw);
+                opacity: 0.6;
+            }
+        }
+
+        /* Hexagon Grid Animation */
+        .hex-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.03'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: hex-drift 60s linear infinite;
+        }
+
+        @keyframes hex-drift {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50px);
+            }
+        }
+
+        /* Heartbeat Pulse Ring */
+        .pulse-ring {
+            position: absolute;
+            border: 2px solid rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            animation: heartbeat 4s ease-out infinite;
+        }
+
+        .pulse-ring:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .pulse-ring:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 20%;
+            animation-delay: 1.3s;
+        }
+
+        .pulse-ring:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            right: 30%;
+            animation-delay: 2.6s;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* ECG Line Animation */
+        .ecg-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            opacity: 0.1;
+        }
+
+        .ecg-path {
+            stroke: #10b981;
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: draw-ecg 5s linear infinite;
+        }
+
+        @keyframes draw-ecg {
+            0% {
+                stroke-dashoffset: 2000;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -129,32 +416,68 @@
         </div>
     </nav>
 
-    <section class="mt-20 px-6 text-center max-w-5xl mx-auto reveal">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-[11px] font-bold tracking-[0.2em] text-emerald-700 uppercase bg-emerald-100/50 border border-emerald-200 rounded-full">
-            <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-            Interface Version 4.0.2 Stable
-        </div>
-        <h1 class="text-6xl md:text-8xl font-bold hero-text leading-[1.1] min-h-[1.2em]">
-            <span id="typing-text"></span>
-        </h1>
-        <p class="mt-10 text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto font-light">
-            Integrating advanced neural telemetry with molecular biological data. 
-            <span class="font-semibold text-slate-800">Bophelo Bot</span> is your autonomous health architect, predicting vitals before they manifest.
-        </p>
-        
-        <div class="mt-14 flex flex-col md:flex-row gap-6 justify-center items-center">
-            <button class="group relative bg-emerald-600 text-white font-bold px-12 py-5 rounded-full hover:bg-emerald-500 transition-all duration-300 shadow-2xl shadow-emerald-200 hover:shadow-emerald-400 hover:-translate-y-1 overflow-hidden">
-                <div class="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:animate-shine"></div>
-                
-                <span class="relative z-10 flex items-center gap-2">
-                    Start Bio-Integration
-                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </span>
-            </button>
+    <section class="mt-20 px-6 text-center max-w-5xl mx-auto reveal relative min-h-[600px] flex flex-col justify-center">
+        <!-- Animated Hero Background -->
+        <div class="hero-bg">
+            <!-- Hexagon Grid -->
+            <div class="hex-grid"></div>
             
-            <div class="flex flex-col items-start border-l-2 border-emerald-500 pl-4">
-                <span class="mono text-[10px] text-slate-400 uppercase tracking-tighter">Diagnostic Readiness</span>
-                <span class="text-slate-900 font-bold">99.98% Precision Rate</span>
+            <!-- Floating Particles -->
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            
+            <!-- Neural Network Lines -->
+            <div class="neural-lines">
+                <div class="neural-line"></div>
+                <div class="neural-line"></div>
+                <div class="neural-line"></div>
+                <div class="neural-line"></div>
+            </div>
+            
+            <!-- Pulse Rings -->
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            
+            <!-- ECG Animation -->
+            <div class="ecg-line">
+                <svg width="100%" height="100%" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                    <path class="ecg-path" d="M0,50 L100,50 L120,20 L140,80 L160,50 L200,50 L220,50 L240,10 L260,90 L280,50 L400,50 L420,50 L440,20 L460,80 L480,50 L600,50 L620,50 L640,20 L660,80 L680,50 L800,50 L820,50 L840,20 L860,80 L880,50 L1000,50 L1020,50 L1040,20 L1060,80 L1080,50 L1200,50" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-[11px] font-bold tracking-[0.2em] text-emerald-700 uppercase bg-emerald-100/50 border border-emerald-200 rounded-full backdrop-blur-sm">
+                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                Interface Version 4.0.2 Stable
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold hero-text leading-[1.1] min-h-[1.2em]">
+                <span id="typing-text"></span>
+            </h1>
+            <p class="mt-10 text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto font-light">
+                Integrating advanced neural telemetry with molecular biological data. 
+                <span class="font-semibold text-slate-800">Bophelo Bot</span> is your autonomous health architect, predicting vitals before they manifest.
+            </p>
+            
+            <div class="mt-14 flex flex-col md:flex-row gap-6 justify-center items-center">
+                <button class="group relative bg-emerald-600 text-white font-bold px-12 py-5 rounded-full hover:bg-emerald-500 transition-all duration-300 shadow-2xl shadow-emerald-200 hover:shadow-emerald-400 hover:-translate-y-1 overflow-hidden">
+                    <div class="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] group-hover:animate-shine"></div>
+                    
+                    <span class="relative z-10 flex items-center gap-2">
+                        Start Bio-Integration
+                        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </button>
+                
+                <div class="flex flex-col items-start border-l-2 border-emerald-500 pl-4">
+                    <span class="mono text-[10px] text-slate-400 uppercase tracking-tighter">Diagnostic Readiness</span>
+                    <span class="text-slate-900 font-bold">99.98% Precision Rate</span>
+                </div>
             </div>
         </div>
     </section>

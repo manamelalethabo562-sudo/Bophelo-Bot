@@ -44,6 +44,21 @@
             letter-spacing: -0.04em;
         }
 
+        /* Typing Cursor Effect */
+        #typing-text::after {
+            content: '|';
+            display: inline-block;
+            margin-left: 5px;
+            color: var(--medical-emerald);
+            animation: blink 0.8s infinite;
+            -webkit-text-fill-color: var(--medical-emerald);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         .medical-card {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
@@ -119,8 +134,8 @@
             <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
             Interface Version 4.0.2 Stable
         </div>
-        <h1 class="text-6xl md:text-8xl font-bold hero-text leading-[1.1]">
-            The Precision <br> <span class="italic font-light">Health Interface.</span>
+        <h1 class="text-6xl md:text-8xl font-bold hero-text leading-[1.1] min-h-[1.2em]">
+            <span id="typing-text"></span>
         </h1>
         <p class="mt-10 text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto font-light">
             Integrating advanced neural telemetry with molecular biological data. 
@@ -176,7 +191,6 @@
     <footer class="bg-white border-t border-slate-200 pt-16 pb-8 reveal">
         <div class="max-w-7xl mx-auto px-10">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-2 mb-6">
                         <div class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center">
@@ -256,6 +270,42 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Looping Typing Effect Logic
+        const textElement = document.getElementById('typing-text');
+        const textContent = "The Precision Health Interface.";
+        let index = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeLoop() {
+            const currentText = textElement.textContent;
+            
+            if (isDeleting) {
+                // Remove character
+                textElement.textContent = textContent.substring(0, index - 1);
+                index--;
+                typeSpeed = 50; // Faster deleting
+            } else {
+                // Add character
+                textElement.textContent = textContent.substring(0, index + 1);
+                index++;
+                typeSpeed = 100; // Normal typing speed
+            }
+
+            // Logic to switch states
+            if (!isDeleting && index === textContent.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at the end of sentence
+            } else if (isDeleting && index === 0) {
+                isDeleting = false;
+                typeSpeed = 500; // Brief pause before restarting
+            }
+
+            setTimeout(typeLoop, typeSpeed);
+        }
+
+        window.onload = () => setTimeout(typeLoop, 500);
     </script>
 
 </body>
